@@ -1,0 +1,100 @@
+site_name: Secure Asses Data Insight Framework - SADIF
+site_description: Documentation about SADIF, Cyber Threat Intelligence Framework.
+site_author: forestleaks
+site_url: https://docs.forestleaks.com
+copyright: © 2024 forestleaks. All rights reserved
+repo_name: GitHub
+repo_url: https://github.com/florestleaks/SADIF
+edit_uri: https://github.com/florestleaks/SADIF/blob/main/docs/
+
+# Theming
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.tabs
+    - navigation.path
+    - navigation.footer
+    - navigation.expand
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - search.highlight
+  palette:
+    scheme: forestleaks
+  font:
+    text: IBM Plex Sans
+    code: Roboto Mono
+# CSS
+extra_css:
+  - assets/css/custom.css
+
+# Extra
+extra:
+  version:
+    provider: mike
+  generator: true
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/florestleaks/SADIF
+    - icon: fontawesome/brands/medium
+      link: https://blog.forestleaks.com
+    - icon: fontawesome/brands/slack
+      link: https://community.forestleaks.com
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/luizgustavocorrea/
+# Plugins
+plugins:
+  - mike:
+      alias_type: symlink
+      canonical_version: latest
+  - search
+
+
+# Extensions
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - tables
+  - admonition
+  - def_list
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.smartsymbols
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.betterem
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: false
+      auto_title: false
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets:
+      url_download: true
+
+# Page tree
+nav:
+  - Home: 'index.md'
+
+
+
