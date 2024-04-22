@@ -1,0 +1,172 @@
+site_name: Soar FlorestLeaks
+site_description: FlorestLeaks framework, high performance, easy to learn, fast to
+  code, ready for production
+site_url: https://git.florestleaks.com/florestleaks/soar/soar
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github-alt
+  extra:
+    homepage: https://git.florestleaks.com/florestleaks/soar/soar
+  palette:
+  - scheme: default
+    toggle:
+      icon: material/weather-night
+      name: Switch to dark mode
+  - scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  features:
+  - navigation.instant
+  - navigation.instant.prefetch
+  - search.suggest
+  - search.highlight
+  - search.share
+  - content.tabs.link
+  - navigation.indexes
+  - content.tooltips
+  - navigation.path
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  - navigation.tabs
+  - navigation.instant.preview
+  - navigation.tracking
+  - navigation.tabs.sticky
+  - navigation.expand
+repo_name: florestleaks/soar/soar
+repo_url: https://git.florestleaks.com/florestleaks/soar/soar
+edit_uri: ''
+markdown_extensions:
+  toc:
+    permalink: true
+  markdown.extensions.codehilite:
+    guess_lang: false
+  mdx_include:
+    base_path: docs
+  admonition: null
+  codehilite: null
+  extra: null
+  pymdownx.tabbed:
+    alternate_style: true
+  pymdownx.tilde: null
+  attr_list: null
+  md_in_html: null
+plugins:
+- privacy
+- info:
+    enabled: false
+    enabled_on_serve: true
+- search:
+    pipeline:
+    - stemmer
+    - stopWordFilter
+    - trimmer
+- group:
+    plugins:
+    - optimize
+    - minify
+- blog:
+    categories_url_format: category/{slug}
+    authors: true
+    authors_file: '{blog}/.authors.yml'
+    pagination_url_format: page/{page}
+- rss:
+    match_path: blog/posts/.*
+    date_from_meta:
+      as_creation: date
+    categories:
+    - categories
+    - tags
+- mkdocstrings:
+    handlers:
+      python:
+        paths:
+        - src
+        options:
+          extensions:
+          - griffe_typingdoc
+          show_if_no_docstring: true
+          show_source: true
+          allow_inspection: false
+          show_bases: true
+          preload_modules:
+          - soar
+          parameter_headings: true
+          show_root_heading: false
+          show_root_toc_entry: true
+          show_root_full_path: true
+          show_root_members_full_path: true
+          show_object_full_path: true
+          group_by_category: true
+          show_category_heading: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+          docstring_style: numpy
+          show_docstring_attributes: true
+          show_docstring_functions: true
+          show_docstring_classes: true
+          show_docstring_modules: true
+          show_docstring_description: true
+          show_docstring_other_parameters: true
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          unwrap_annotated: true
+          filters:
+          - '!^_'
+          merge_init_into_class: true
+          docstring_section_style: spacy
+          signature_crossrefs: true
+extra:
+  version:
+    provider: mike
+  social:
+  - icon: fontawesome/brands/github-alt
+    link: https://github.com/tiangolo/fastapi
+  - icon: fontawesome/brands/discord
+    link: https://discord.gg/VQjSZaeJmf
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/fastapi
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/tiangolo
+  - icon: fontawesome/brands/dev
+    link: https://dev.to/tiangolo
+  - icon: fontawesome/brands/medium
+    link: https://medium.com/@tiangolo
+  - icon: fontawesome/solid/globe
+    link: https://tiangolo.com
+
+nav:
+- SoarFlorestLeaks: Index.md
+- features.md
+- Learn:
+  - learn/index.md
+  - Tutorial - User Guide:
+    - tutorial/index.md
+  - Advanced User Guide:
+    - advanced/index.md
+    - Advanced Security:
+      - advanced/security/index.md
+      - advanced/security/oauth2-scopes.md
+      - advanced/security/http-basic-auth.md
+  - How To - Recipes:
+    - how-to/index.md
+- florestleaks-peaple.md
+- Resources:
+  - resources/index.md
+  - project-generation.md
+  - external-links.md
+  - newsletter.md
+- About:
+  - about/index.md
+  - alternatives.md
+  - history-design-future.md
+  - benchmarks.md
+- Help:
+  - help/index.md
+  - help-fastapi.md
+  - contributing.md
+- release-notes.md

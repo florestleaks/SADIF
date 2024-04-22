@@ -1,1 +1,1 @@
-"""SADIF."""
+"""soar package."""
