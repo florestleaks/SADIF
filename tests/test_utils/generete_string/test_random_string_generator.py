@@ -1,23 +1,23 @@
 import unittest
 from unittest.mock import patch
 
-from soar.utils.generete_string.random_string_generator import RandomStringGenerator
+from sadif.utils.generete_string.random_string_generator import RandomStringGenerator
 
 
 class TestRandomStringGenerator(unittest.TestCase):
     def setUp(self):
         self.generator = RandomStringGenerator()
 
-    @patch("soar.utils.generete_string.random_string_generator.random.choices")
-    @patch("soar.utils.generete_string.random_string_generator.random.randint")
+    @patch("sadif.utils.generete_string.random_string_generator.random.choices")
+    @patch("sadif.utils.generete_string.random_string_generator.random.randint")
     def test_generate_string_title(self, mock_randint, mock_choices):
         mock_randint.return_value = 10
         mock_choices.return_value = ["a"] * 10
         title = self.generator.generate_string_title("example")
         self.assertEqual(title, "test de example - aaaaaaaaaa")
 
-    @patch("soar.utils.generete_string.random_string_generator.random.choices")
-    @patch("soar.utils.generete_string.random_string_generator.random.randint")
+    @patch("sadif.utils.generete_string.random_string_generator.random.choices")
+    @patch("sadif.utils.generete_string.random_string_generator.random.randint")
     def test_generate_string_paragraph(self, mock_randint, mock_choices):
         mock_randint.return_value = 5
         mock_choices.return_value = ["b"] * 5
