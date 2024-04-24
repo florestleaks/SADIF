@@ -1,5 +1,5 @@
 # Caches
 .*_cache/
-
+*.log
 # Git
 .git/

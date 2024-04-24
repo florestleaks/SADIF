@@ -1,6 +1,8 @@
 import random
 import string
 
+from sadif import LogManager
+
 
 class MarkdownStringGenerator:
     """
@@ -41,6 +43,8 @@ class MarkdownStringGenerator:
         string_length : int
             The default length for generated random strings. Defaults to 10.
         """
+        self.logger = LogManager.get_logger()
+        self.logger.info("MyClass instance has been created")
         self.string_length = string_length
 
     def _random_string(self, length: int) -> str:

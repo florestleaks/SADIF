@@ -169,3 +169,11 @@ nav:
   - help-fastapi.md
   - contributing.md
 - release-notes.md
+- Reference (Code API):
+  - utils:
+    - generete_string/markdown_string_generator:
+      - Markdownstringgenerator:
+        - reference/soar/utils/generate_string/markdown_string_generator/MarkdownStringGenerator.md
+    - generete_string/random_string_generator:
+      - Randomstringgenerator:
+        - reference/soar/utils/generate_string/random_string_generator/RandomStringGenerator.md
