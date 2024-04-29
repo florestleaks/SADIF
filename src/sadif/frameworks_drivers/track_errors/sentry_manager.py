@@ -14,7 +14,7 @@ class SentryManager:
     """
 
     @classmethod
-    def initialize_sentry(cls) -> None:
+    def initialize_sentry(cls):
         """Initializes Sentry SDK with settings from the ConfigLoader."""
         config_loader = ConfigLoader()
         # release_config_file = toml.load('../../../../pyproject.toml')
