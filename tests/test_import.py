@@ -1,4 +1,4 @@
-"""Test SADIF."""
+"""Test soar."""
 
 import sadif
 
