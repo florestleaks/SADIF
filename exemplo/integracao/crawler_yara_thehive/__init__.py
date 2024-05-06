@@ -1,22 +1,23 @@
 import datetime
 
 from pymongo import MongoClient
-from soar.config.soar_config import SoarConfiguration
-from soar.frameworks_drivers.crawler.crawler_manager import CrawlerManager
-from soar.frameworks_drivers.crawler.soar_crawler import WebCrawler
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_datatype import (
+
+from sadif.config.soar_config import SadifConfiguration
+from sadif.frameworks_drivers.crawler.crawler_manager import CrawlerManager
+from sadif.frameworks_drivers.crawler.soar_crawler import WebCrawler
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_datatype import (
     CaseDataType,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.create_case import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.create_case import (
     CreateCase,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case_comment_template import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case_comment_template import (
     CaseCommentTemplate,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case_comment_template.template_render import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case_comment_template.template_render import (
     TemplateRenderer,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
     SessionThehive,
 )
 
@@ -34,7 +35,7 @@ def current_unix_timestamp():
 # Testando a função
 if __name__ == "__main__":
     # Initialize the MongoDB client
-    config = SoarConfiguration()
+    config = SadifConfiguration()
     db_url = config.get_configuration("MONGODB_URL")
     db_real = MongoClient(db_url)
     crawler_manager = CrawlerManager(db_real)
@@ -72,7 +73,7 @@ if __name__ == "__main__":
             )
 
             # Initialize SoarConfiguration
-            config = SoarConfiguration()
+            config = SadifConfiguration()
 
             # Retrieve TheHive configurations
             thehive_url = config.get_configuration("THEHIVE")

@@ -179,7 +179,7 @@ class SoarDocumentationBuilder:
 
 if __name__ == "__main__":
     package_name = "sadif"
-    base_directory = "../../docs/reference/soar/"
+    base_directory = "../../docs/reference/sadif/"
     mkdocs_file_path = "../../mkdocs.yml"
     template_path = "../../doc_data/template_mkdocs.yml"
 
