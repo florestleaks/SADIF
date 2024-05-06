@@ -1,14 +1,14 @@
-"""from soar.frameworks_drivers.notification.webhook import WebhookSender
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.caso_de_uso.caselist import (
+"""from sadif.frameworks_drivers.notification.webhook import WebhookSender
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.caso_de_uso.caselist import (
     CaseLister,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.save_case import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.save_case import (
     MongoDBSaver,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.update_case import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.update_case import (
     UpdateCase,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
     SessionThehive,
 )
 

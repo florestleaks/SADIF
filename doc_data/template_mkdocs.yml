@@ -1,44 +1,36 @@
-site_name: Soar FlorestLeaks
-site_description: FlorestLeaks framework, high performance, easy to learn, fast to
-  code, ready for production
-site_url: https://git.florestleaks.com/florestleaks/soar/soar
+site_name: SADIF
+site_description: Documentation about SADIF
+site_author: CorrêaLabs
+site_url: https://docs_sadif.florestleaks.com
+copyright: © 2024 CorrêaLabs. All rights reserved
+repo_name: GitHub
+repo_url: https://github.com/florestleaks/SADIF/
+edit_uri: https://github.com/florestleaks/SADIF/tree/main/docs
+
+
+# Theming
 theme:
   name: material
-  language: en
-  icon:
-    repo: fontawesome/brands/github-alt
-  extra:
-    homepage: https://git.florestleaks.com/florestleaks/soar/soar
-  palette:
-  - scheme: default
-    toggle:
-      icon: material/weather-night
-      name: Switch to dark mode
-  - scheme: slate
-    toggle:
-      icon: material/brightness-4
-      name: Switch to light mode
+  custom_dir: overrides
   features:
-  - navigation.instant
-  - navigation.instant.prefetch
-  - search.suggest
-  - search.highlight
-  - search.share
-  - content.tabs.link
-  - navigation.indexes
-  - content.tooltips
-  - navigation.path
-  - content.code.annotate
-  - content.code.copy
-  - content.code.select
-  - navigation.tabs
-  - navigation.instant.preview
-  - navigation.tracking
-  - navigation.tabs.sticky
-  - navigation.expand
-repo_name: florestleaks/soar/soar
-repo_url: https://git.florestleaks.com/florestleaks/soar/soar
-edit_uri: ''
+    - navigation.tabs
+    - navigation.path
+    - navigation.footer
+    - navigation.expand
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - search.highlight
+  palette:
+    scheme: filigran
+  font:
+    text: IBM Plex Sans
+    code: Roboto Mono
+# CSS
+extra_css:
+  - assets/css/custom.css
+
 markdown_extensions:
   toc:
     permalink: true
@@ -54,119 +46,118 @@ markdown_extensions:
   pymdownx.tilde: null
   attr_list: null
   md_in_html: null
-plugins:
-- privacy
-- info:
-    enabled: false
-    enabled_on_serve: true
-- search:
-    pipeline:
-    - stemmer
-    - stopWordFilter
-    - trimmer
-- group:
-    plugins:
-    - optimize
-    - minify
-- blog:
-    categories_url_format: category/{slug}
-    authors: true
-    authors_file: '{blog}/.authors.yml'
-    pagination_url_format: page/{page}
-- rss:
-    match_path: blog/posts/.*
-    date_from_meta:
-      as_creation: date
-    categories:
-    - categories
-    - tags
-- mkdocstrings:
-    handlers:
-      python:
-        paths:
-        - src
-        options:
-          extensions:
-          - griffe_typingdoc
-          show_if_no_docstring: true
-          show_source: true
-          allow_inspection: false
-          show_bases: true
-          preload_modules:
-          - soar
-          parameter_headings: true
-          show_root_heading: false
-          show_root_toc_entry: true
-          show_root_full_path: true
-          show_root_members_full_path: true
-          show_object_full_path: true
-          group_by_category: true
-          show_category_heading: true
-          show_symbol_type_heading: true
-          show_symbol_type_toc: true
-          docstring_style: numpy
-          show_docstring_attributes: true
-          show_docstring_functions: true
-          show_docstring_classes: true
-          show_docstring_modules: true
-          show_docstring_description: true
-          show_docstring_other_parameters: true
-          inherited_members: true
-          members_order: source
-          separate_signature: true
-          unwrap_annotated: true
-          filters:
-          - '!^_'
-          merge_init_into_class: true
-          docstring_section_style: spacy
-          signature_crossrefs: true
+  pymdownx.highlight:
+    use_pygments: true
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: false
+    auto_title: false
+  pymdownx.tasklist:
+    custom_checkbox: true
+  pymdownx.snippets:
+    url_download: true
+
+# Extra
 extra:
   version:
     provider: mike
+  generator: false
   social:
-  - icon: fontawesome/brands/github-alt
-    link: https://github.com/tiangolo/fastapi
-  - icon: fontawesome/brands/discord
-    link: https://discord.gg/VQjSZaeJmf
-  - icon: fontawesome/brands/twitter
-    link: https://twitter.com/fastapi
-  - icon: fontawesome/brands/linkedin
-    link: https://www.linkedin.com/in/tiangolo
-  - icon: fontawesome/brands/dev
-    link: https://dev.to/tiangolo
-  - icon: fontawesome/brands/medium
-    link: https://medium.com/@tiangolo
-  - icon: fontawesome/solid/globe
-    link: https://tiangolo.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/florestleaks/SADIF
+    - icon: fontawesome/brands/slack
+      link: https://discord.gg/UtDMf4wF4Q
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/luizgustavocorrea/
+plugins:
+  - mike:
+      alias_type: symlink
+      canonical_version: latest
+  - search
+  - git-committers:
+      repository: florestleaks/SADIF
+      branch: main
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+  - glightbox
+  - privacy
+  - info:
+      enabled: false
+      enabled_on_serve: true
+  - search:
+      pipeline:
+      - stemmer
+      - stopWordFilter
+      - trimmer
+  - group:
+      plugins:
+      - optimize
+      - minify
+  - blog:
+      categories_url_format: category/{slug}
+      authors: true
+      authors_file: '{blog}/.authors.yml'
+      pagination_url_format: page/{page}
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+      - categories
+      - tags
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+          - src
+          options:
+            extensions:
+            - griffe_typingdoc
+            show_if_no_docstring: true
+            show_source: true
+            allow_inspection: false
+            show_bases: true
+            preload_modules:
+            - sadif
+            parameter_headings: true
+            show_root_heading: false
+            show_root_toc_entry: true
+            show_root_full_path: true
+            show_root_members_full_path: true
+            show_object_full_path: true
+            group_by_category: true
+            show_category_heading: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            docstring_style: numpy
+            show_docstring_attributes: true
+            show_docstring_functions: true
+            show_docstring_classes: true
+            show_docstring_modules: true
+            show_docstring_description: true
+            show_docstring_other_parameters: true
+            inherited_members: true
+            members_order: source
+            separate_signature: true
+            unwrap_annotated: true
+            filters:
+            - '!^_'
+            merge_init_into_class: true
+            docstring_section_style: spacy
+            signature_crossrefs: true
 
+
+# Page tree
 nav:
-- SoarFlorestLeaks: Index.md
-- features.md
-- Learn:
-  - learn/index.md
-  - Tutorial - User Guide:
-    - tutorial/index.md
-  - Advanced User Guide:
-    - advanced/index.md
-    - Advanced Security:
-      - advanced/security/index.md
-      - advanced/security/oauth2-scopes.md
-      - advanced/security/http-basic-auth.md
-  - How To - Recipes:
-    - how-to/index.md
-- florestleaks-peaple.md
-- Resources:
-  - resources/index.md
-  - project-generation.md
-  - external-links.md
-  - newsletter.md
-- About:
-  - about/index.md
-  - alternatives.md
-  - history-design-future.md
-  - benchmarks.md
-- Help:
-  - help/index.md
-  - help-fastapi.md
-  - contributing.md
-- release-notes.md
+  - Home: 'index.md'
+  - SDK Setup:
+    - Ubuntu: development/environment_ubuntu.md
+  - Development:
+    - Prerequisites:
+      - Ubuntu: development/environment_ubuntu.md
+      - Windows: development/environment_windows.md
+    - Platform: development/platform.md
+    - Python library: development/python.md
+    - Connectors: development/connectors.md
+    - Playground: development/api-usage.md

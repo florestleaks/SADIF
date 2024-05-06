@@ -24,6 +24,12 @@ toml = "^0.10.2"
 bs4 = "^0.0.2"
 yara-python = "^4.5.0"
 mongomock = "^4.1.2"
+pymdown-extensions = "^10.8.1"
+mdx-include = "^1.4.2"
+mkdocs-rss-plugin = "^1.12.2"
+mkdocstrings = "^0.25.0"
+mkdocstrings-python = "^1.10.0"
+griffe-typingdoc = "^0.2.5"
 
 [tool.poetry.group.test.dependencies]  # https://python-poetry.org/docs/master/managing-dependencies/
 commitizen = ">=3.21.3"

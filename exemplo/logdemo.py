@@ -1,4 +1,4 @@
-from soar.frameworks_drivers.log_manager.soar_log import LogManager
+from sadif.frameworks_drivers.log_manager.soar_log import LogManager
 
 log_manager = LogManager()
 

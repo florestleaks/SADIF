@@ -1,15 +1,15 @@
-from soar.config.soar_config import SoarConfiguration
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.list_case import (
+from sadif.config.soar_config import SadifConfiguration
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_manager_case.list_case import (
     ListCase,
 )
-from soar.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
+from sadif.frameworks_drivers.ticket_system.thehive.thehive_internal_mods_api.thehive_session import (
     SessionThehive,
 )
-from soar.utils.generete_string.random_string_generator import RandomStringGenerator
+from sadif.utils.generete_string.random_string_generator import RandomStringGenerator
 
 if __name__ == "__main__":
     generator = RandomStringGenerator()
-    config = SoarConfiguration()
+    config = SadifConfiguration()
 
     thehive_url = config.get_configuration("THEHIVE")
     thehive_api_key = config.get_configuration("THEHIVE_API_SERVICE")
