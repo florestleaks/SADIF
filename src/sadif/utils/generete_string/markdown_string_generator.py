@@ -87,7 +87,7 @@ class MarkdownStringGenerator:
         title = title or self._random_string(self.string_length)
         return f"{'#' * level} {title}"
 
-    def generate_list(self, num_items: int, ordered: bool = False) -> str:  # noqa: FBT001
+    def generate_list(self, num_items: int, ordered: bool = False) -> str:
         """
         Generates a Markdown formatted list, either ordered or unordered, with the
         specified number of items.

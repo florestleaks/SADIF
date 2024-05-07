@@ -40,8 +40,8 @@ class ClientManagerImport:
     def import_from_json(
         self,
         import_path: str | None = None,
-        overwrite: bool = False,  # noqa: FBT001
-        meta_update: bool = False,  # noqa: FBT001
+        overwrite: bool = False,
+        meta_update: bool = False,
     ) -> str:
         """
         Imports data from JSON files into corresponding collections in the MongoDB database.

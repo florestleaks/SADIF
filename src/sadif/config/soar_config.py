@@ -8,9 +8,10 @@ from sadif.dataconfig import config_variables_file
 
 
 class SadifConfiguration:
-    def __init__(self):
+    def __init__(self, config_file: str | None = None):
         self.current_directory = Path(__file__).parent
-        self.json_file_path = config_variables_file
+        # Configura o caminho do arquivo JSON usando o parâmetro config_file, se fornecido
+        self.json_file_path = Path(config_file) if config_file else config_variables_file
         self._configurations = {}
         self.running_in_airflow = False
         self._detect_environment()

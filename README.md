@@ -12,3 +12,7 @@
 - **Github Documentation** <https://florestleaks.github.io/SADIF/>
 - **OFFICIAL Documentation** <https://forestleaks.com/SADIF/>
 
+# install
+```bash
+pip3 install sadif 
+```

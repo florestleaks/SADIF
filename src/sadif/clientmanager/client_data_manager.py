@@ -49,7 +49,7 @@ class ClientManager:
         client_name: str,
         company: str,
         ciid: str,
-        overwrite: bool = False,  # noqa: FBT001
+        overwrite: bool = False,
     ) -> str:
         """
         Creates a new collection for a client in the MongoDB database. If the collection

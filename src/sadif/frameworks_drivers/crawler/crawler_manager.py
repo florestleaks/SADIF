@@ -14,66 +14,7 @@ from sadif.frameworks_drivers.log_manager.soar_log import LogManager
 
 
 class CrawlerManager:
-    """
-    Manages the crawling process, including interactions with the database, logging, and
-    handling of Git repositories for crawler configurations.
-
-    Attributes
-    ----------
-    db_client : MongoClient, optional
-        The MongoDB client used for database interactions. If not provided, a new client
-        will be instantiated with default settings.
-
-    Methods
-    -------
-    __init__(self, db_client=None) -> None
-        Initializes the CrawlerManager with optional database client.
-
-    _create_unique_indexes(self)
-        Creates unique indexes for URL fields in all managed collections to avoid duplicate
-        entries.
-
-    process_document(self, document: dict, overwrite: bool=False) -> Union[ObjectId, int, None]
-        Processes a single document (web page data), determining the appropriate collection
-        based on the document's URL and whether it requires credentials for access. Handles
-        insertion or updating of documents based on the `overwrite` flag.
-
-    _determine_collection(self, url: str, document: dict) -> Collection
-        Determines the appropriate MongoDB collection for a document based on its URL and
-        whether it contains credentials for access.
-
-    get_all_documents_by_collection(self, collection_name: str=None) -> dict
-        Fetches documents from specified collection or all documents from all collections
-        if no specific collection is named.
-
-    export_collections(self, export_dir: str)
-        Exports all documents from all collections into JSON files, organized by collection
-        name within the specified directory.
-
-    import_collections(self, overwrite: bool=False)
-        Imports documents into their respective collections from JSON files located in the
-        cloned Git repository directory. Overwrites existing documents if `overwrite` is True.
-    """
-
     def __init__(self, db_client=None) -> None:
-        """
-        Initializes the CrawlerManager instance. Sets up logging, loads configurations from
-        the SoarConfiguration, clones the necessary Git repository for crawler monitoring,
-        and initializes the database connections based on provided or default MongoDB client.
-
-        Parameters
-        ----------
-        db_client : MongoClient, optional
-            A pre-configured instance of MongoClient for database operations. If not provided,
-            a default MongoClient instance will be created and used.
-
-        Raises
-        ------
-        Exception
-            If initialization of any component (logging, configuration loading, Git repository
-            cloning, or database connection) fails, an exception is raised with an appropriate
-            error message.
-        """
         self.log_manager = LogManager()
         init_msg = "Initializing CrawlerManager"
         self.log_manager.log("info", init_msg, category="crawler_manager", task_state="running")
@@ -124,16 +65,6 @@ class CrawlerManager:
             self.log_manager.capture_exception(e, init_fail_msg, category="crawler_manager")
 
     def _create_unique_indexes(self):
-        """
-        Creates unique indexes on the 'url' field for all collections managed by the CrawlerManager.
-        This ensures that each URL can only be stored once in each collection, preventing duplicate
-        entries.
-
-        Raises
-        ------
-        Exception
-            If creating a unique index for any collection fails, an exception is captured and logged.
-        """
         try:
             collections = [
                 self.collection_with_credential_web,
@@ -153,34 +84,7 @@ class CrawlerManager:
             index_fail_msg = "Failed to create unique indexes"
             self.log_manager.capture_exception(e, index_fail_msg, category="crawler_manager")
 
-    def process_document(self, document: dict, overwrite: bool = False) -> ObjectId | int | None:  # noqa: FBT001
-        """
-        Processes a given document by determining the appropriate collection based on the URL
-        and credentials information within the document. Inserts the document into the database
-        or updates an existing document based on the 'overwrite' flag.
-
-        Parameters
-        ----------
-        document : dict
-            The document (e.g., web page data) to be processed and stored in the database.
-        overwrite : bool, optional
-            If True, the document will update an existing entry with the same URL if found. If False,
-            the document will only be inserted if the URL does not already exist in the database.
-
-        Returns
-        -------
-        ObjectId, int, or None
-            The ObjectId of the inserted document if a new document was inserted, the number
-            of documents matched for update if an existing document was updated, or None
-            if the document was skipped due to duplication and 'overwrite' is False.
-
-        Raises
-        ------
-        ValueError
-            If the 'url' key is missing from the document.
-        Exception
-            For any other failures during the process, an exception is raised.
-        """
+    def process_document(self, document: dict, overwrite: bool = False) -> ObjectId | int | None:
         task_state = "running"
         process_msg = "Processing document"
         self.log_manager.log("info", process_msg, category="crawler_manager", task_state=task_state)
@@ -219,29 +123,6 @@ class CrawlerManager:
             self.log_manager.capture_exception(e, fail_msg, category="crawler_manager")
 
     def _determine_collection(self, url: str, document: dict) -> Collection:
-        """
-        Determines the appropriate MongoDB collection for storing the document based on the
-        document's URL and whether it requires credentials for access.
-
-        Parameters
-        ----------
-        url : str
-            The URL of the document being processed.
-        document : dict
-            The document being processed, which may contain authentication type information
-            indicating if credentials are required for access.
-
-        Returns
-        -------
-        Collection
-            The MongoDB collection object where the document should be stored.
-
-        Raises
-        ------
-        Exception
-            If there is any issue in determining the appropriate collection, an exception
-            is raised.
-        """
         task_state = "running"
         determ_msg = "Determining collection for URL"
         self.log_manager.log("info", determ_msg, category="crawler_manager", task_state=task_state)
@@ -262,27 +143,6 @@ class CrawlerManager:
             )
 
     def get_all_documents_by_collection(self, collection_name: str = None) -> dict:
-        """
-        Retrieves documents from a specific collection or all documents from all collections
-        managed by the CrawlerManager, depending on the 'collection_name' parameter.
-
-        Parameters
-        ----------
-        collection_name : str, optional
-            The name of a specific collection from which to fetch documents. If not provided,
-            documents will be fetched from all collections.
-
-        Returns
-        -------
-        dict
-            A dictionary with collection names as keys and lists of documents as values. If
-            a specific collection name is provided, the dictionary will contain a single entry.
-
-        Raises
-        ------
-        Exception
-            If fetching documents fails for any reason, an exception is raised and logged.
-        """
         try:
             self.log_manager.log(
                 "info",
@@ -334,21 +194,6 @@ class CrawlerManager:
             )
 
     def export_collections(self, export_dir: str):
-        """
-        Exports all documents from the database into JSON files organized by collection name
-        within the specified directory.
-
-        Parameters
-        ----------
-        export_dir : str
-            The directory path where the collection documents should be exported as JSON files.
-
-        Raises
-        ------
-        Exception
-            If there are any issues during the export process, such as problems creating directories
-            or writing to files, an exception is raised and logged.
-        """
         task_state = "running"
         try:
             self.log_manager.log(
@@ -397,12 +242,7 @@ class CrawlerManager:
                 e, "Failed to export collections", category="crawler_manager"
             )
 
-    def import_collections(self, meta_update: bool = False):  # noqa: FBT001
-        """
-        Imports documents into the database from JSON files located within the cloned Git repository
-        directory. Existing documents can be overwritten based on the 'overwrite' flag. If 'meta_update'
-        is set to True, the entire database is dropped and recreated from the imported JSON files.
-        """
+    def import_collections(self, meta_update: bool = False):
         imported_urls = []
         ignored_urls = []  # Esta lista agora conterá tuplas de (nome do arquivo, motivo)
 

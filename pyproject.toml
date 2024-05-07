@@ -104,7 +104,7 @@ target-version = "py310"
 [tool.ruff.lint]
 ignore-init-module-imports = true
 select = ["A", "ASYNC", "B", "BLE", "C4", "C90", "D", "DTZ", "E", "EM", "ERA", "F", "FBT", "FLY", "FURB", "G", "I", "ICN", "INP", "INT", "ISC", "LOG", "N", "NPY", "PERF", "PGH", "PIE", "PLC", "PLE", "PLR", "PLW", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "S", "SIM", "SLF", "SLOT", "T10", "T20", "TCH", "TID", "TRY", "UP", "W", "YTT"]
-ignore = ["E501","S311",'TRY301','TCH002','PERF203','PLR0912','TRY004','N806','RUF013','TRY002','PLR2004','ERA001','FBT002','N815','N803','PLR0913','C901','W','B007','BLE001','RET505','TRY300','T203','F811','SIM117','T201','UP008','TRY401',"D205","G004","D",'PT',"SLF","ISC001","N999","PGH001", "RET504", "S101"]
+ignore = ["E501",'FBT001',"S311",'TRY301','TCH002','PERF203','PLR0912','TRY004','N806','RUF013','TRY002','PLR2004','ERA001','FBT002','N815','N803','PLR0913','C901','W','B007','BLE001','RET505','TRY300','T203','F811','SIM117','T201','UP008','TRY401',"D205","G004","D",'PT',"SLF","ISC001","N999","PGH001", "RET504", "S101"]
 
 
 [tool.ruff.lint.flake8-tidy-imports]

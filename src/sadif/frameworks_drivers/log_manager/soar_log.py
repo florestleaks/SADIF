@@ -70,6 +70,8 @@ class LogManager:
         "yara",
         "file",
         "git",
+        "export_manager",
+        "import_manager",
         "crawler_manager",
         "module_manager",
         f"module_{SadifConfiguration().get_configuration('MONGODB_DATABASE_MODULES_MANAGER_RANSOMWHAT_NAME')}",
