@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]  # https://python-poetry.org/docs/pyproject/
 name = "sadif"
-version = "0.1.0"
+version = "0.2.0"
 description = "Secure Asses Data Insight Framework - SADIF"
 authors = ["CorrêaLabs <lcorrea@florestleaks.com>"]
 readme = "README.md"

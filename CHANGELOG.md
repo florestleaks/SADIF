@@ -1,3 +1,9 @@
+## v0.2.0 (2024-05-07)
+
+### Fix
+
+- **CrawlerClass**: import and export responsibility was separated
+
 ## v0.1.0 (2024-05-07)
 
 ### Feat
