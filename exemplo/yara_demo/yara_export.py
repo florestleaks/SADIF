@@ -1,7 +1,7 @@
-from soar.config.soar_config import SoarConfiguration
-from soar.frameworks_drivers.soar_yara.yara_export import YaraRulesExporter
+from sadif.config.soar_config import SadifConfiguration
+from sadif.frameworks_drivers.soar_yara.yara_export import YaraRulesExporter
 
-config = SoarConfiguration()
+config = SadifConfiguration()
 db_url = config.get_configuration("MONGODB_URL")
 
 if __name__ == "__main__":
