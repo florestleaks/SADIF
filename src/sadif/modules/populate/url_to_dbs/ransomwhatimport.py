@@ -358,8 +358,6 @@ class RansomwhatImport(IBaseModule):
 
 
 if __name__ == "__main__":
-    db_real = MongoClient(
-        ""
-    )
+    db_real = MongoClient("")
     a = RansomwhatImport(db_real)
     a.import_git_repository()

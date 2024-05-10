@@ -4,9 +4,7 @@ from soar.utils.generete_string.random_string_generator import RandomStringGener
 
 if __name__ == "__main__":
     randstr = RandomStringGenerator()
-    db_real = MongoClient(
-        ""
-    )
+    db_real = MongoClient("")
     # Criar uma instância de ClientManager usando o mock_client
     manager = ClientManager(db_client=db_real)
     # for i in client_sample:
